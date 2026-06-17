@@ -1,4 +1,4 @@
-name: CI
+name: Smoke Check
 
 # Lightweight smoke check — no heavy deps (torch / onnx / etc.) required.
 # Verifies the repo stays structurally sound: code parses, JSON parses,

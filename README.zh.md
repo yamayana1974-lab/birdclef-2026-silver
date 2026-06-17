@@ -1,5 +1,8 @@
 # BirdCLEF++ 2026 — 银牌方案 (75/4091, 前 1.83%, private LB 0.946 / 0.947)
 
+[![Smoke Check](https://github.com/yamayana1974-lab/birdclef-2026-silver/actions/workflows/ci.yml/badge.svg)](https://github.com/yamayana1974-lab/birdclef-2026-silver/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > 语言: [English](README.md) | **中文**
 
 [BirdCLEF++ 2026](https://www.kaggle.com/competitions/birdclef-2026) 研究竞赛

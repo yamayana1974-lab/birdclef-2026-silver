@@ -1,5 +1,8 @@
 # BirdCLEF++ 2026 — Silver Medal Solution (75/4091, top 1.83%, private LB 0.946 / 0.947)
 
+[![Smoke Check](https://github.com/yamayana1974-lab/birdclef-2026-silver/actions/workflows/ci.yml/badge.svg)](https://github.com/yamayana1974-lab/birdclef-2026-silver/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > Language: **English** | [中文](README.zh.md)
 
 Reproducible code for my two silver-medal submissions to the

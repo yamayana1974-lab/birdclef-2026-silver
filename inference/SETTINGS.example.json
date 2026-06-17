@@ -1,0 +1,24 @@
+{
+  "_comment": "Copy to SETTINGS.json and fill in your local paths, then export each KEY as a BIRDCLEF_* environment variable before running `python -m scheme_model_5.main`. The pipeline reads env vars, not this file directly; this is a documented checklist.",
+
+  "BIRDCLEF_BASE": "/path/to/birdclef-2026",
+  "BIRDCLEF_INPUT_ROOT": "/path/to/input_root",
+  "BIRDCLEF_MODEL_DIR": "/path/to/perch_v2_savedmodel",
+  "BIRDCLEF_SED_DIR": "/path/to/distilled_sed_onnx_dir",
+  "BIRDCLEF_MODE": "submit",
+  "BIRDCLEF_MODEL5_SUBM": "submission.csv",
+
+  "_hgnet_branch_comment": "Enable HGNet branch; pick ONE of the two backends below.",
+  "BIRDCLEF_M5_USE_HGNET": "1",
+  "BIRDCLEF_HGNET_W": "0.15",
+
+  "_v20_single_backbone": "0.946 submission: set BACKBONE + DIR, leave ENSEMBLE_DIRS empty.",
+  "BIRDCLEF_HGNET_BACKBONE": "hgnetv2_b4.ssld_stage2_ft_in1k",
+  "BIRDCLEF_HGNET_DIR": "/path/to/hgnetv2_b4_fold_pt",
+
+  "_v22_ensemble": "0.947 submission: set ENSEMBLE_DIRS (os.pathsep-separated) + WEIGHTS, and HGNET_W=0.20.",
+  "BIRDCLEF_HGNET_ENSEMBLE_DIRS": "/path/hgnetv2_b0_onnx:/path/hgnetv2_b1_onnx:/path/hgnetv2_b4_onnx_weak_labels",
+  "BIRDCLEF_HGNET_ENSEMBLE_WEIGHTS": "1,1,3",
+
+  "BIRDCLEF_HGNET_BRANCH_PATH": ""
+}

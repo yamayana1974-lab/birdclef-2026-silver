@@ -1,0 +1,16 @@
+numpy
+pandas
+scipy
+scikit-learn
+tqdm
+soundfile
+joblib
+
+timm
+torch
+torchaudio
+torchvision
+
+openvino
+onnx
+onnxscript

@@ -1,0 +1,12 @@
+# Normalize line endings: store as LF in the repo, check out native on each OS.
+* text=auto eol=lf
+
+# Treat notebooks and binary-ish assets as binary (no eol conversion).
+*.ipynb text eol=lf
+*.png binary
+*.jpg binary
+*.onnx binary
+*.pt binary
+*.pth binary
+*.bin binary
+*.zip binary

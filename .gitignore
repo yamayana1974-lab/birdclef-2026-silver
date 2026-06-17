@@ -1,0 +1,63 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ---- Model weights / large artifacts (host on Releases or Kaggle datasets) ----
+*.pt
+*.pth
+*.onnx
+*.onnx.data
+*.bin
+*.xml
+*.tflite
+*.pb
+*.h5
+*.ckpt
+*.safetensors
+*.jb
+*.pkl
+*.npy
+*.npz
+
+# ---- Archives ----
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# ---- Run outputs / caches ----
+output/
+outputs/
+runs/
+run_*/
+perch_cache/
+perch_cache_v2/
+waveform_cache/
+processed_data/
+pseudo_output/
+*.log
+
+# ---- Competition data (do NOT commit) ----
+birdclef-2026/
+train_audio/
+train_soundscapes/
+test_soundscapes/
+*.ogg
+*.wav
+
+# ---- Submissions ----
+submission*.csv
+subm_*.csv
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

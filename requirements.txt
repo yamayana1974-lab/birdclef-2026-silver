@@ -1,0 +1,33 @@
+# Consolidated dependencies for the whole repo.
+# Each module also has its own requirements.txt with the minimal subset.
+#
+# Install torch / torchaudio / torchvision matching your CUDA from pytorch.org;
+# versions are intentionally not pinned here.
+
+# --- core ---
+numpy
+pandas
+scipy
+scikit-learn
+tqdm
+joblib
+
+# --- audio ---
+librosa
+soundfile
+torchaudio
+
+# --- deep learning ---
+torch
+torchvision
+timm
+
+# --- inference runtimes (CPU submission on Kaggle) ---
+onnx
+onnxscript
+onnxruntime
+openvino
+
+# --- SED distillation teacher conversion (training only, optional) ---
+# tensorflow         # only needed once to convert Perch SavedModel -> ONNX
+# tf2onnx

@@ -14,6 +14,14 @@
 > 流水线, 弱标签 / 伪标签训练扩展, 以及在 private 榜上稳住的集成调参。完整
 > 归因见 [`docs/CREDITS.md`](docs/CREDITS.md)。
 
+## 项目亮点 (Interview Highlights)
+
+- 🥈 BirdCLEF++ 2026 **银牌** —— **75 / 4091 队 (前 1.83%)**, private LB 0.946 / 0.947。
+- 把被广泛 fork 的 Kaggle notebook 重构成**模块化、可本地复现的训练/推理仓库** (config / data / models / inference 清晰分层, 全部由 `BIRDCLEF_*` 环境变量驱动)。
+- 搭建**多分支音频分类系统**: Perch v2 embedding + ProtoSSM/MLP probe + site×hour 先验融合 + Perch 蒸馏 SED, 再与 HGNet mel-谱图分支做 rank-blend。
+- 实现**伪标签 / 弱标签训练流水线**: 高置信度过滤、类别平衡、软标签融合, 覆盖 1 万+ 条无标注声景。
+- 面向 **Kaggle CPU-only 提交**做工程优化: ONNX Runtime 推理 + 环境变量配置, 实现 Kaggle ↔ 本地无缝迁移。
+
 ## 成绩
 
 | 提交 | 入口 notebook | Private LB | 区别 |

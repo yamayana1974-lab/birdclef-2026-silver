@@ -17,6 +17,14 @@ macro-averaged ROC-AUC).
 > tuning that held up on the private leaderboard. Full attribution is in
 > [`docs/CREDITS.md`](docs/CREDITS.md).
 
+## Interview Highlights
+
+- 🥈 **Silver medal** in BirdCLEF++ 2026 — **75 / 4091 teams (top 1.83%)**, private LB 0.946 / 0.947.
+- Refactored widely-forked Kaggle notebooks into a **modular, locally-reproducible training/inference repository** (config / data / models / inference cleanly separated, driven by `BIRDCLEF_*` environment variables).
+- Built a **multi-branch audio classification system**: Perch v2 embeddings + ProtoSSM/MLP probes + site×hour prior fusion + Perch-distilled SED, rank-blended with an HGNet mel-spectrogram branch.
+- Implemented a **pseudo-label / weak-label training pipeline**: high-confidence filtering, class balancing, and soft-label fusion over 10k+ unlabeled soundscapes.
+- Engineered for **CPU-only Kaggle submission**: ONNX Runtime inference and environment-variable configuration for seamless Kaggle ↔ local portability.
+
 ## Results
 
 | Submission | Entrypoint notebook | Private LB | What's different |

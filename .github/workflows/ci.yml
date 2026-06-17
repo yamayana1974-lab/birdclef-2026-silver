@@ -1,0 +1,78 @@
+name: CI
+
+# Lightweight smoke check — no heavy deps (torch / onnx / etc.) required.
+# Verifies the repo stays structurally sound: code parses, JSON parses,
+# notebooks carry no committed outputs, and the pseudo-label CLI is callable.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  smoke-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile all Python sources
+        run: |
+          python -m compileall -q inference training
+
+      - name: Validate JSON files
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          bad = []
+          for p in pathlib.Path(".").rglob("*.json"):
+              if ".git" in p.parts:
+                  continue
+              try:
+                  json.loads(p.read_text(encoding="utf-8"))
+              except Exception as e:
+                  bad.append(f"{p}: {e}")
+          if bad:
+              print("Invalid JSON files:")
+              print("\n".join(bad))
+              sys.exit(1)
+          print("All JSON files parse OK.")
+          PY
+
+      - name: Check notebooks have no committed outputs
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          offenders = []
+          for p in pathlib.Path(".").rglob("*.ipynb"):
+              if ".git" in p.parts:
+                  continue
+              nb = json.loads(p.read_text(encoding="utf-8"))
+              for cell in nb.get("cells", []):
+                  if cell.get("cell_type") != "code":
+                      continue
+                  if cell.get("outputs"):
+                      offenders.append(f"{p}: has cell outputs")
+                      break
+                  if cell.get("execution_count") is not None:
+                      offenders.append(f"{p}: has execution_count")
+                      break
+          if offenders:
+              print("Notebooks with committed outputs (please clear before commit):")
+              print("\n".join(offenders))
+              sys.exit(1)
+          print("All notebooks are output-free.")
+          PY
+
+      - name: pseudo_runner CLI is callable (--help)
+        working-directory: training
+        run: |
+          python pseudo_runner/run_all.py --help

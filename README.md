@@ -115,11 +115,11 @@ v20 (0.946) and v22 (0.947) are the same code with different HGNet env vars —
 see [`inference/README.md`](inference/README.md) and `inference/SETTINGS.example.json`
 for the exact variable sets.
 
-> **Paths default to `./data` and `./models`** (relative to the repo) and can be
-> overridden with the documented `BIRDCLEF_*` environment variables (e.g.
-> `BIRDCLEF_BASE`, `BIRDCLEF_TRAIN_ROOT`, `BIRDCLEF_SED_ROOT`) rather than editing
-> the code. On Kaggle the pipeline auto-detects `/kaggle/input/...`. Each module
-> README lists the relevant vars.
+> **Paths default to Kaggle's `/kaggle/input/...`** (the pipeline auto-detects
+> them when run on Kaggle). To run locally, override them with the documented
+> `BIRDCLEF_*` environment variables (e.g. `BIRDCLEF_BASE`, `BIRDCLEF_MODEL_DIR`,
+> `BIRDCLEF_SED_DIR`) rather than editing the code. Each module README lists the
+> relevant vars.
 
 ## Environment
 
